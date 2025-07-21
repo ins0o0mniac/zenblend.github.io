@@ -52,6 +52,9 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap">
     <!-- Place favicon.png and og-image.jpg in your project root for best results -->
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         :root {
             --primary-bg: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
             --secondary-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -331,6 +334,8 @@
             transform: translateY(0);
         }
     </style>
+    <!-- Plausible Analytics -->
+    <script defer data-domain="zenblend.github.io" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
     <!-- Particles Background -->
@@ -363,18 +368,90 @@
             </div>
             <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
                 Discover the perfect blend of natural herbs and botanicals crafted for your unique experience. 
-                Pure, potent, and perfectly balanced.
+                Pure, potent, and perfectly balanced.<br><b>No payment is handled on this website. After submitting your order, you will receive an invoice by email.</b>
             </p>
-            <button class="glass px-12 py-4 text-lg font-semibold rounded-full pulse-glow hover:scale-105 transition-all duration-300">
+            <a href="#quiz" id="startJourneyBtn" class="glass px-12 py-4 text-lg font-semibold rounded-full pulse-glow hover:scale-105 transition-all duration-300">
                 <i class="fas fa-leaf mr-2"></i>
-                Explore Blends
-            </button>
+                Start Your Journey
+            </a>
         </div>
         
         <!-- Floating Elements -->
         <div class="absolute top-20 left-10 w-20 h-20 bg-pink-500 rounded-full opacity-10 floating" style="animation-delay: -0.5s;"></div>
         <div class="absolute bottom-20 right-10 w-32 h-32 bg-purple-500 rounded-full opacity-10 floating" style="animation-delay: -1s;"></div>
         <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-500 rounded-full opacity-10 floating" style="animation-delay: -1.5s;"></div>
+    </section>
+
+    <!-- Interactive Quiz -->
+    <section id="quiz" class="py-24 px-6 section-reveal">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold playfair gradient-text mb-6">Find Your Perfect Blend</h2>
+                <p class="text-xl text-gray-400">
+                    Take our personalized quiz to discover the ideal blend for your lifestyle and preferences.
+                </p>
+            </div>
+            
+            <div class="glass p-8 md:p-12 rounded-3xl" id="quiz-container">
+                <div id="question-1" class="quiz-question">
+                    <h3 class="text-2xl font-bold mb-8 text-center">What's your ideal time to enjoy a blend?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('morning', 1)">
+                            <div class="text-4xl mb-4"> 305</div>
+                            <h4 class="text-xl font-semibold mb-2">Morning</h4>
+                            <p class="text-gray-400">Start my day with energy</p>
+                        </div>
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('afternoon', 1)">
+                            <div class="text-4xl mb-4"> 600 e0f</div>
+                            <h4 class="text-xl font-semibold mb-2">Afternoon</h4>
+                            <p class="text-gray-400">Midday focus boost</p>
+                        </div>
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('evening', 1)">
+                            <div class="text-4xl mb-4"> 306</div>
+                            <h4 class="text-xl font-semibold mb-2">Evening</h4>
+                            <p class="text-gray-400">Unwind after work</p>
+                        </div>
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('night', 1)">
+                            <div class="text-4xl mb-4"> 319</div>
+                            <h4 class="text-xl font-semibold mb-2">Night</h4>
+                            <p class="text-gray-400">Peaceful relaxation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="question-2" class="quiz-question hidden">
+                    <h3 class="text-2xl font-bold mb-8 text-center">What mood are you looking to achieve?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('energetic', 2)">
+                            <div class="text-4xl mb-4"> 6a1</div>
+                            <h4 class="text-xl font-semibold mb-2">Energetic</h4>
+                        </div>
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('focused', 2)">
+                            <div class="text-4xl mb-4"> 3af</div>
+                            <h4 class="text-xl font-semibold mb-2">Focused</h4>
+                        </div>
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('relaxed', 2)">
+                            <div class="text-4xl mb-4"> 9d8</div>
+                            <h4 class="text-xl font-semibold mb-2">Relaxed</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="quiz-result" class="hidden text-center">
+                    <div class="text-6xl mb-6" id="result-emoji">🌿</div>
+                    <h3 class="text-3xl font-bold gradient-text mb-4" id="result-title">Your Perfect Blend</h3>
+                    <p class="text-xl text-gray-300 mb-8" id="result-description">Based on your preferences...</p>
+                    <button class="glass px-10 py-4 text-lg font-semibold rounded-full pulse-glow hover:scale-105 transition-all duration-300" id="seeMyBlendBtn">
+                        <i class="fas fa-eye mr-2"></i>
+                        See My Blend
+                    </button>
+                    <button class="glass px-10 py-4 text-lg font-semibold rounded-full pulse-glow hover:scale-105 transition-all duration-300 mt-4" onclick="window.location.href='cart.html'">
+                        <i class="fas fa-shopping-bag mr-2"></i>
+                        Order Now
+                    </button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Effect Selector -->
@@ -389,28 +466,28 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 effect-selector">
                 <div class="effect-card p-8 text-center card-3d group cursor-pointer" onclick="selectEffect('relax')">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🧘‍♀️</div>
+                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300"> 9d8 200d 640 e0f</div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Relax</h3>
                     <p class="text-gray-400 mb-6">Unwind and let go of the day's tension with our calming botanical blend.</p>
                     <div class="bg-gradient-to-r from-pink-500 to-purple-500 h-2 rounded-full opacity-70"></div>
                 </div>
                 
                 <div class="effect-card p-8 text-center card-3d group cursor-pointer" onclick="selectEffect('focus')">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🎯</div>
+                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300"> 3af</div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Focus</h3>
                     <p class="text-gray-400 mb-6">Sharpen your mind and enhance concentration with clarity-boosting herbs.</p>
                     <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full opacity-70"></div>
                 </div>
                 
                 <div class="effect-card p-8 text-center card-3d group cursor-pointer" onclick="selectEffect('energy')">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
+                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300"> 6a1</div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Energy</h3>
                     <p class="text-gray-400 mb-6">Boost your vitality with our invigorating blend of natural energizers.</p>
                     <div class="bg-gradient-to-r from-yellow-500 to-orange-500 h-2 rounded-full opacity-70"></div>
                 </div>
                 
                 <div class="effect-card p-8 text-center card-3d group cursor-pointer" onclick="selectEffect('calm')">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🌙</div>
+                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300"> 319</div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Calm</h3>
                     <p class="text-gray-400 mb-6">Find inner peace and tranquility with our evening serenity blend.</p>
                     <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full opacity-70"></div>
@@ -434,7 +511,7 @@
                     <div class="w-full h-48 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl mb-6 relative overflow-hidden">
                         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                         <div class="absolute bottom-4 left-4 text-white">
-                            <div class="text-3xl mb-2">🌿</div>
+                            <div class="text-3xl mb-2"> 33f</div>
                         </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Zen Garden</h3>
@@ -442,7 +519,7 @@
                     <div class="flex justify-between items-center">
                         <span class="text-2xl font-bold text-pink-400">$29.99</span>
                         <button class="glass px-6 py-2 rounded-full hover:scale-105 transition-transform" onclick="window.location.href='cart.html'">
-                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                            <i class="fas fa-cart-plus mr-2"></i>Order Now
                         </button>
                     </div>
                 </div>
@@ -451,7 +528,7 @@
                     <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl mb-6 relative overflow-hidden">
                         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                         <div class="absolute bottom-4 left-4 text-white">
-                            <div class="text-3xl mb-2">🧠</div>
+                            <div class="text-3xl mb-2"> 9e0</div>
                         </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Mind Focus</h3>
@@ -459,7 +536,7 @@
                     <div class="flex justify-between items-center">
                         <span class="text-2xl font-bold text-pink-400">$34.99</span>
                         <button class="glass px-6 py-2 rounded-full hover:scale-105 transition-transform" onclick="window.location.href='cart.html'">
-                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                            <i class="fas fa-cart-plus mr-2"></i>Order Now
                         </button>
                     </div>
                 </div>
@@ -468,7 +545,7 @@
                     <div class="w-full h-48 bg-gradient-to-br from-yellow-400 to-red-500 rounded-2xl mb-6 relative overflow-hidden">
                         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                         <div class="absolute bottom-4 left-4 text-white">
-                            <div class="text-3xl mb-2">🔥</div>
+                            <div class="text-3xl mb-2"> 525</div>
                         </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Energy Boost</h3>
@@ -476,77 +553,39 @@
                     <div class="flex justify-between items-center">
                         <span class="text-2xl font-bold text-pink-400">$32.99</span>
                         <button class="glass px-6 py-2 rounded-full hover:scale-105 transition-transform" onclick="window.location.href='cart.html'">
-                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                            <i class="fas fa-cart-plus mr-2"></i>Order Now
                         </button>
                     </div>
                 </div>
             </div>
+            <div class="flex justify-end mb-4">
+                <button id="seeAllBlendsBtn" class="glass px-6 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:scale-105 transition">See All Blends</button>
+            </div>
         </div>
     </section>
 
-    <!-- Interactive Quiz -->
-    <section id="quiz" class="py-24 px-6 section-reveal">
-        <div class="container mx-auto max-w-4xl">
+    <!-- Testimonials Section -->
+    <section class="py-24 px-6 section-reveal bg-black bg-opacity-30">
+        <div class="container mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold playfair gradient-text mb-6">Find Your Perfect Blend</h2>
-                <p class="text-xl text-gray-400">
-                    Take our personalized quiz to discover the ideal blend for your lifestyle and preferences.
-                </p>
+                <h2 class="text-5xl font-bold playfair gradient-text mb-6">What Our Customers Say</h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Real stories from real ZenBlend users.</p>
             </div>
-            
-            <div class="glass p-8 md:p-12 rounded-3xl" id="quiz-container">
-                <div id="question-1" class="quiz-question">
-                    <h3 class="text-2xl font-bold mb-8 text-center">What's your ideal time to enjoy a blend?</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('morning', 1)">
-                            <div class="text-4xl mb-4">🌅</div>
-                            <h4 class="text-xl font-semibold mb-2">Morning</h4>
-                            <p class="text-gray-400">Start my day with energy</p>
-                        </div>
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('afternoon', 1)">
-                            <div class="text-4xl mb-4">☀️</div>
-                            <h4 class="text-xl font-semibold mb-2">Afternoon</h4>
-                            <p class="text-gray-400">Midday focus boost</p>
-                        </div>
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('evening', 1)">
-                            <div class="text-4xl mb-4">🌆</div>
-                            <h4 class="text-xl font-semibold mb-2">Evening</h4>
-                            <p class="text-gray-400">Unwind after work</p>
-                        </div>
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('night', 1)">
-                            <div class="text-4xl mb-4">🌙</div>
-                            <h4 class="text-xl font-semibold mb-2">Night</h4>
-                            <p class="text-gray-400">Peaceful relaxation</p>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="glass p-8 rounded-3xl text-center">
+                    <div class="text-3xl mb-4">🌿</div>
+                    <p class="text-lg text-gray-300 mb-4">"ZenBlend helped me quit tobacco for good. The flavors are amazing and I feel so much better!"</p>
+                    <div class="font-bold gradient-text">— Alex P.</div>
                 </div>
-                
-                <div id="question-2" class="quiz-question hidden">
-                    <h3 class="text-2xl font-bold mb-8 text-center">What mood are you looking to achieve?</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('energetic', 2)">
-                            <div class="text-4xl mb-4">⚡</div>
-                            <h4 class="text-xl font-semibold mb-2">Energetic</h4>
-                        </div>
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('focused', 2)">
-                            <div class="text-4xl mb-4">🎯</div>
-                            <h4 class="text-xl font-semibold mb-2">Focused</h4>
-                        </div>
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('relaxed', 2)">
-                            <div class="text-4xl mb-4">🧘</div>
-                            <h4 class="text-xl font-semibold mb-2">Relaxed</h4>
-                        </div>
-                    </div>
+                <div class="glass p-8 rounded-3xl text-center">
+                    <div class="text-3xl mb-4">💫</div>
+                    <p class="text-lg text-gray-300 mb-4">"I love the Mind Focus blend for work. It keeps me sharp without the jitters."</p>
+                    <div class="font-bold gradient-text">— Jamie L.</div>
                 </div>
-                
-                <div id="quiz-result" class="hidden text-center">
-                    <div class="text-6xl mb-6" id="result-emoji">🌿</div>
-                    <h3 class="text-3xl font-bold gradient-text mb-4" id="result-title">Your Perfect Blend</h3>
-                    <p class="text-xl text-gray-300 mb-8" id="result-description">Based on your preferences...</p>
-                    <button class="glass px-10 py-4 text-lg font-semibold rounded-full pulse-glow hover:scale-105 transition-all duration-300" onclick="window.location.href='blends.html'">
-                        <i class="fas fa-shopping-bag mr-2"></i>
-                        Get My Blend
-                    </button>
+                <div class="glass p-8 rounded-3xl text-center">
+                    <div class="text-3xl mb-4">🦋</div>
+                    <p class="text-lg text-gray-300 mb-4">"The quiz was spot on! My recommended blend is now my daily ritual."</p>
+                    <div class="font-bold gradient-text">— Morgan S.</div>
                 </div>
             </div>
         </div>
@@ -583,10 +622,10 @@
                 </div>
                 <div class="glass p-8 rounded-3xl floating">
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-gradient-to-br from-green-400 to-blue-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl">🌿</div>
-                        <div class="bg-gradient-to-br from-purple-400 to-pink-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl">🌸</div>
-                        <div class="bg-gradient-to-br from-yellow-400 to-red-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl">🍃</div>
-                        <div class="bg-gradient-to-br from-indigo-400 to-purple-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl">🌺</div>
+                        <div class="bg-gradient-to-br from-green-400 to-blue-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl"> 33f</div>
+                        <div class="bg-gradient-to-br from-purple-400 to-pink-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl"> 338</div>
+                        <div class="bg-gradient-to-br from-yellow-400 to-red-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl"> 343</div>
+                        <div class="bg-gradient-to-br from-indigo-400 to-purple-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl"> 33a</div>
                     </div>
                 </div>
             </div>
@@ -600,14 +639,14 @@
                 <div class="text-4xl font-bold gradient-text playfair mb-4">ZenBlend</div>
                 <p class="text-gray-400 mb-8">Premium tobacco alternatives for your journey</p>
                 <div class="flex justify-center space-x-6 text-2xl">
-                    <a href="#" class="hover:text-pink-300 transition-colors"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-pink-300 transition-colors"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-pink-300 transition-colors"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="hover:text-pink-300 transition-colors"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="hover:text-pink-300 transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-pink-300 transition-colors" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-pink-300 transition-colors" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-pink-300 transition-colors" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
             <div class="text-center text-gray-500 border-t border-gray-700 pt-8">
-                <p>&copy; 2024 ZenBlend. All rights reserved. | Crafted with 💜 for wellness enthusiasts</p>
+                <p>&copy; 2024 ZenBlend. All rights reserved. | Crafted with 49c for wellness enthusiasts</p>
                 <p><a href="/privacy.html" class="underline">Privacy Policy</a> | <a href="/terms.html" class="underline">Terms of Service</a></p>
             </div>
         </div>
@@ -736,6 +775,10 @@
             document.getElementById('result-emoji').textContent = resultBlend.emoji;
             document.getElementById('result-title').textContent = resultBlend.name;
             document.getElementById('result-description').textContent = resultBlend.description;
+            // Store blend in localStorage for order form pre-fill
+            try {
+                localStorage.setItem('zenblend_quiz_blend', resultBlend.name);
+            } catch(e) {}
         }
 
         function getRecommendedBlend() {
@@ -745,19 +788,19 @@
             if (mood === 'energetic') {
                 return {
                     name: 'Energy Boost Blend',
-                    emoji: '⚡',
+                    emoji: ' 6a1',
                     description: 'Perfect for your energetic lifestyle! This blend will keep you motivated and active throughout the day.'
                 };
             } else if (mood === 'focused') {
                 return {
                     name: 'Mind Focus Blend',
-                    emoji: '🎯',
+                    emoji: ' 3af',
                     description: 'Enhance your concentration and mental clarity with this specially crafted focus blend.'
                 };
             } else {
                 return {
                     name: 'Zen Garden Blend',
-                    emoji: '🧘‍♀️',
+                    emoji: ' 9d8 200d 640 e0f',
                     description: 'Unwind and find your inner peace with this deeply relaxing and calming blend.'
                 };
             }
@@ -814,6 +857,74 @@
                 document.body.style.transition = 'opacity 1s ease';
                 document.body.style.opacity = '1';
             }, 100);
+
+            // Back to Top Button Logic
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('hidden');
+                } else {
+                    backToTopBtn.classList.add('hidden');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Hero button scrolls to quiz
+            document.getElementById('startJourneyBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('quiz').scrollIntoView({behavior: 'smooth'});
+            });
+
+            // See My Blend button after quiz
+            document.getElementById('seeMyBlendBtn').addEventListener('click', function() {
+                // Get recommended blend from quiz
+                let blend = localStorage.getItem('zenblend_quiz_blend');
+                // Remove highlight from all
+                document.querySelectorAll('.product-card').forEach(pc => pc.classList.remove('ring-4','ring-pink-400','ring-opacity-60','scale-105'));
+                // Highlight recommended blend
+                document.querySelectorAll('.product-card').forEach(pc => {
+                    if (blend && pc.innerHTML.includes(blend.replace(' Blend',''))) {
+                        pc.classList.add('ring-4','ring-pink-400','ring-opacity-60','scale-105');
+                    }
+                });
+                document.getElementById('products').scrollIntoView({behavior: 'smooth'});
+            });
+            // See All Blends button
+            document.getElementById('seeAllBlendsBtn').addEventListener('click', function() {
+                document.querySelectorAll('.product-card').forEach(pc => pc.classList.remove('ring-4','ring-pink-400','ring-opacity-60','scale-105'));
+            });
+            // Product Order Now buttons
+            document.querySelectorAll('.product-card button').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const blend = this.closest('.product-card').querySelector('h3').textContent;
+                    try { localStorage.setItem('zenblend_quiz_blend', blend + ' Blend'); } catch(e) {}
+                    window.location.href = 'cart.html';
+                });
+            });
+            // Effect Selector logic (unchanged)
+            const effectMap = {
+                relax: 'Zen Garden',
+                focus: 'Mind Focus',
+                energy: 'Energy Boost',
+                calm: 'Zen Garden'
+            };
+            document.querySelectorAll('.effect-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    document.querySelectorAll('.product-card').forEach(pc => pc.classList.remove('ring-4','ring-pink-400','ring-opacity-60','scale-105'));
+                    const effect = this.getAttribute('onclick').match(/'(.*?)'/)[1];
+                    const blend = effectMap[effect];
+                    document.querySelectorAll('.product-card').forEach(pc => {
+                        if (pc.innerHTML.includes(blend)) {
+                            pc.classList.add('ring-4','ring-pink-400','ring-opacity-60','scale-105');
+                        }
+                    });
+                    try { localStorage.setItem('zenblend_quiz_blend', blend + ' Blend'); } catch(e) {}
+                    document.getElementById('products').scrollIntoView({behavior: 'smooth'});
+                });
+            });
         });
 
         // Add some interactive hover effects
@@ -838,21 +949,6 @@
                 setTimeout(() => document.body.removeChild(cursor), 500);
             }, 10);
         });
-
-        // Back to Top Button Logic
-        const backToTopBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.remove('hidden');
-            } else {
-                backToTopBtn.classList.add('hidden');
-            }
-        });
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // For maintainability, consider moving all inline JS to a separate zenblend.js file.
     </script>
 </body>
-</html>
+</html> 
