@@ -370,9 +370,9 @@
                 Discover the perfect blend of natural herbs and botanicals crafted for your unique experience. 
                 Pure, potent, and perfectly balanced.<br><b>No payment is handled on this website. After submitting your order, you will receive an invoice by email.</b>
             </p>
-            <a href="#effects" id="exploreBlendsBtn" class="glass px-12 py-4 text-lg font-semibold rounded-full pulse-glow hover:scale-105 transition-all duration-300">
+            <a href="#quiz" id="startJourneyBtn" class="glass px-12 py-4 text-lg font-semibold rounded-full pulse-glow hover:scale-105 transition-all duration-300">
                 <i class="fas fa-leaf mr-2"></i>
-                Explore Blends
+                Start Your Journey
             </a>
         </div>
         
@@ -380,6 +380,78 @@
         <div class="absolute top-20 left-10 w-20 h-20 bg-pink-500 rounded-full opacity-10 floating" style="animation-delay: -0.5s;"></div>
         <div class="absolute bottom-20 right-10 w-32 h-32 bg-purple-500 rounded-full opacity-10 floating" style="animation-delay: -1s;"></div>
         <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-500 rounded-full opacity-10 floating" style="animation-delay: -1.5s;"></div>
+    </section>
+
+    <!-- Interactive Quiz -->
+    <section id="quiz" class="py-24 px-6 section-reveal">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold playfair gradient-text mb-6">Find Your Perfect Blend</h2>
+                <p class="text-xl text-gray-400">
+                    Take our personalized quiz to discover the ideal blend for your lifestyle and preferences.
+                </p>
+            </div>
+            
+            <div class="glass p-8 md:p-12 rounded-3xl" id="quiz-container">
+                <div id="question-1" class="quiz-question">
+                    <h3 class="text-2xl font-bold mb-8 text-center">What's your ideal time to enjoy a blend?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('morning', 1)">
+                            <div class="text-4xl mb-4"> 305</div>
+                            <h4 class="text-xl font-semibold mb-2">Morning</h4>
+                            <p class="text-gray-400">Start my day with energy</p>
+                        </div>
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('afternoon', 1)">
+                            <div class="text-4xl mb-4"> 600 e0f</div>
+                            <h4 class="text-xl font-semibold mb-2">Afternoon</h4>
+                            <p class="text-gray-400">Midday focus boost</p>
+                        </div>
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('evening', 1)">
+                            <div class="text-4xl mb-4"> 306</div>
+                            <h4 class="text-xl font-semibold mb-2">Evening</h4>
+                            <p class="text-gray-400">Unwind after work</p>
+                        </div>
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('night', 1)">
+                            <div class="text-4xl mb-4"> 319</div>
+                            <h4 class="text-xl font-semibold mb-2">Night</h4>
+                            <p class="text-gray-400">Peaceful relaxation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="question-2" class="quiz-question hidden">
+                    <h3 class="text-2xl font-bold mb-8 text-center">What mood are you looking to achieve?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('energetic', 2)">
+                            <div class="text-4xl mb-4"> 6a1</div>
+                            <h4 class="text-xl font-semibold mb-2">Energetic</h4>
+                        </div>
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('focused', 2)">
+                            <div class="text-4xl mb-4"> 3af</div>
+                            <h4 class="text-xl font-semibold mb-2">Focused</h4>
+                        </div>
+                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('relaxed', 2)">
+                            <div class="text-4xl mb-4"> 9d8</div>
+                            <h4 class="text-xl font-semibold mb-2">Relaxed</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="quiz-result" class="hidden text-center">
+                    <div class="text-6xl mb-6" id="result-emoji">🌿</div>
+                    <h3 class="text-3xl font-bold gradient-text mb-4" id="result-title">Your Perfect Blend</h3>
+                    <p class="text-xl text-gray-300 mb-8" id="result-description">Based on your preferences...</p>
+                    <button class="glass px-10 py-4 text-lg font-semibold rounded-full pulse-glow hover:scale-105 transition-all duration-300" id="seeMyBlendBtn">
+                        <i class="fas fa-eye mr-2"></i>
+                        See My Blend
+                    </button>
+                    <button class="glass px-10 py-4 text-lg font-semibold rounded-full pulse-glow hover:scale-105 transition-all duration-300 mt-4" onclick="window.location.href='cart.html'">
+                        <i class="fas fa-shopping-bag mr-2"></i>
+                        Order Now
+                    </button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Effect Selector -->
@@ -486,73 +558,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Interactive Quiz -->
-    <section id="quiz" class="py-24 px-6 section-reveal">
-        <div class="container mx-auto max-w-4xl">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold playfair gradient-text mb-6">Find Your Perfect Blend</h2>
-                <p class="text-xl text-gray-400">
-                    Take our personalized quiz to discover the ideal blend for your lifestyle and preferences.
-                </p>
-            </div>
-            
-            <div class="glass p-8 md:p-12 rounded-3xl" id="quiz-container">
-                <div id="question-1" class="quiz-question">
-                    <h3 class="text-2xl font-bold mb-8 text-center">What's your ideal time to enjoy a blend?</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('morning', 1)">
-                            <div class="text-4xl mb-4"> 305</div>
-                            <h4 class="text-xl font-semibold mb-2">Morning</h4>
-                            <p class="text-gray-400">Start my day with energy</p>
-                        </div>
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('afternoon', 1)">
-                            <div class="text-4xl mb-4"> 600 e0f</div>
-                            <h4 class="text-xl font-semibold mb-2">Afternoon</h4>
-                            <p class="text-gray-400">Midday focus boost</p>
-                        </div>
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('evening', 1)">
-                            <div class="text-4xl mb-4"> 306</div>
-                            <h4 class="text-xl font-semibold mb-2">Evening</h4>
-                            <p class="text-gray-400">Unwind after work</p>
-                        </div>
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('night', 1)">
-                            <div class="text-4xl mb-4"> 319</div>
-                            <h4 class="text-xl font-semibold mb-2">Night</h4>
-                            <p class="text-gray-400">Peaceful relaxation</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="question-2" class="quiz-question hidden">
-                    <h3 class="text-2xl font-bold mb-8 text-center">What mood are you looking to achieve?</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('energetic', 2)">
-                            <div class="text-4xl mb-4"> 6a1</div>
-                            <h4 class="text-xl font-semibold mb-2">Energetic</h4>
-                        </div>
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('focused', 2)">
-                            <div class="text-4xl mb-4"> 3af</div>
-                            <h4 class="text-xl font-semibold mb-2">Focused</h4>
-                        </div>
-                        <div class="quiz-option p-6 text-center" onclick="selectQuizOption('relaxed', 2)">
-                            <div class="text-4xl mb-4"> 9d8</div>
-                            <h4 class="text-xl font-semibold mb-2">Relaxed</h4>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="quiz-result" class="hidden text-center">
-                    <div class="text-6xl mb-6" id="result-emoji"> 33f</div>
-                    <h3 class="text-3xl font-bold gradient-text mb-4" id="result-title">Your Perfect Blend</h3>
-                    <p class="text-xl text-gray-300 mb-8" id="result-description">Based on your preferences...</p>
-                    <button class="glass px-10 py-4 text-lg font-semibold rounded-full pulse-glow hover:scale-105 transition-all duration-300" onclick="window.location.href='cart.html'">
-                        <i class="fas fa-shopping-bag mr-2"></i>
-                        Order Now
-                    </button>
-                </div>
+            <div class="flex justify-end mb-4">
+                <button id="seeAllBlendsBtn" class="glass px-6 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:scale-105 transition">See All Blends</button>
             </div>
         </div>
     </section>
@@ -864,13 +871,40 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Explore Blends scrolls to Effect Selector
-            document.getElementById('exploreBlendsBtn').addEventListener('click', function(e) {
+            // Hero button scrolls to quiz
+            document.getElementById('startJourneyBtn').addEventListener('click', function(e) {
                 e.preventDefault();
-                document.getElementById('effects').scrollIntoView({behavior: 'smooth'});
+                document.getElementById('quiz').scrollIntoView({behavior: 'smooth'});
             });
 
-            // Effect Selector logic
+            // See My Blend button after quiz
+            document.getElementById('seeMyBlendBtn').addEventListener('click', function() {
+                // Get recommended blend from quiz
+                let blend = localStorage.getItem('zenblend_quiz_blend');
+                // Remove highlight from all
+                document.querySelectorAll('.product-card').forEach(pc => pc.classList.remove('ring-4','ring-pink-400','ring-opacity-60','scale-105'));
+                // Highlight recommended blend
+                document.querySelectorAll('.product-card').forEach(pc => {
+                    if (blend && pc.innerHTML.includes(blend.replace(' Blend',''))) {
+                        pc.classList.add('ring-4','ring-pink-400','ring-opacity-60','scale-105');
+                    }
+                });
+                document.getElementById('products').scrollIntoView({behavior: 'smooth'});
+            });
+            // See All Blends button
+            document.getElementById('seeAllBlendsBtn').addEventListener('click', function() {
+                document.querySelectorAll('.product-card').forEach(pc => pc.classList.remove('ring-4','ring-pink-400','ring-opacity-60','scale-105'));
+            });
+            // Product Order Now buttons
+            document.querySelectorAll('.product-card button').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const blend = this.closest('.product-card').querySelector('h3').textContent;
+                    try { localStorage.setItem('zenblend_quiz_blend', blend + ' Blend'); } catch(e) {}
+                    window.location.href = 'cart.html';
+                });
+            });
+            // Effect Selector logic (unchanged)
             const effectMap = {
                 relax: 'Zen Garden',
                 focus: 'Mind Focus',
@@ -879,36 +913,18 @@
             };
             document.querySelectorAll('.effect-card').forEach(card => {
                 card.addEventListener('click', function() {
-                    // Remove highlight from all
                     document.querySelectorAll('.product-card').forEach(pc => pc.classList.remove('ring-4','ring-pink-400','ring-opacity-60','scale-105'));
-                    // Find blend to highlight
                     const effect = this.getAttribute('onclick').match(/'(.*?)'/)[1];
                     const blend = effectMap[effect];
-                    // Highlight relevant product
                     document.querySelectorAll('.product-card').forEach(pc => {
                         if (pc.innerHTML.includes(blend)) {
                             pc.classList.add('ring-4','ring-pink-400','ring-opacity-60','scale-105');
                         }
                     });
-                    // Store effect for order form pre-fill
                     try { localStorage.setItem('zenblend_quiz_blend', blend + ' Blend'); } catch(e) {}
-                    // Scroll to products
                     document.getElementById('products').scrollIntoView({behavior: 'smooth'});
                 });
             });
-            // Product Order Now buttons scroll to order form
-            document.querySelectorAll('.product-card button').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    // Pre-fill blend for order form
-                    const blend = this.closest('.product-card').querySelector('h3').textContent;
-                    try { localStorage.setItem('zenblend_quiz_blend', blend + ' Blend'); } catch(e) {}
-                    // Scroll to order form (cart.html)
-                    window.location.href = 'cart.html';
-                });
-            });
-
-            // For maintainability, consider moving all inline JS to a separate zenblend.js file.
         });
 
         // Add some interactive hover effects
