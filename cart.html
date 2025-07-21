@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart - ZenBlend</title>
-    <meta name="description" content="Review your ZenBlend cart and learn about next steps. Follow us for updates!">
+    <title>Order Your Blend - ZenBlend</title>
+    <meta name="description" content="Order your ZenBlend herbal blend. Fill out the form and receive an invoice by email. No payment on site.">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="canonical" href="/cart.html">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -17,15 +17,65 @@
     </nav>
     <div class="flex items-center justify-center min-h-screen">
         <div class="max-w-2xl mx-auto p-8 glass rounded-3xl text-center">
-            <div class="text-4xl mb-4 gradient-text font-bold playfair">Your Cart</div>
-            <p class="mb-6 text-gray-300">Thank you for your interest in ZenBlend! This is a demo cart page. In a full version, you could review your blends and proceed to checkout.</p>
-            <p class="mb-6 text-gray-400">For updates and to be notified when ZenBlend launches, follow us on social media or contact us directly.</p>
-            <div class="flex justify-center space-x-6 text-2xl mb-8">
-                <a href="#" class="hover:text-pink-300 transition-colors" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-pink-300 transition-colors" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="hover:text-pink-300 transition-colors" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-            </div>
-            <a href="/" class="underline text-pink-400">&larr; Back to Home</a>
+            <div class="text-4xl mb-4 gradient-text font-bold playfair">Order Your Blend</div>
+            <p class="mb-6 text-gray-300">Fill out the form below to order your ZenBlend herbal blend. <b>No payment is handled on this website.</b> After submitting your order, you will receive an invoice by email with payment instructions.</p>
+            <form id="orderForm" action="https://formspree.io/f/mnqewqzv" method="POST" class="space-y-6 text-left">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_redirect" value="/thankyou.html">
+                <label class="block mb-2 font-semibold">Full Name
+                    <input type="text" name="name" required class="w-full p-2 rounded bg-gray-900 bg-opacity-40 border border-gray-700 mt-1">
+                </label>
+                <label class="block mb-2 font-semibold">Email Address
+                    <input type="email" name="email" required class="w-full p-2 rounded bg-gray-900 bg-opacity-40 border border-gray-700 mt-1">
+                </label>
+                <label class="block mb-2 font-semibold">Shipping Address
+                    <textarea name="address" required minlength="10" class="w-full p-2 rounded bg-gray-900 bg-opacity-40 border border-gray-700 mt-1" placeholder="Street, City, ZIP, Country"></textarea>
+                </label>
+                <label class="block mb-2 font-semibold">Select Your Blends & Quantities
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <input type="checkbox" name="blend_Energy Boost" id="blend_energy" value="Energy Boost Blend">
+                            <label for="blend_energy">Energy Boost Blend</label>
+                            <input type="number" name="quantity_Energy Boost" min="0" value="0" class="w-16 p-1 rounded bg-gray-900 bg-opacity-40 border border-gray-700" aria-label="Quantity for Energy Boost Blend">
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <input type="checkbox" name="blend_Mind Focus" id="blend_focus" value="Mind Focus Blend">
+                            <label for="blend_focus">Mind Focus Blend</label>
+                            <input type="number" name="quantity_Mind Focus" min="0" value="0" class="w-16 p-1 rounded bg-gray-900 bg-opacity-40 border border-gray-700" aria-label="Quantity for Mind Focus Blend">
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <input type="checkbox" name="blend_Zen Garden" id="blend_zen" value="Zen Garden Blend">
+                            <label for="blend_zen">Zen Garden Blend</label>
+                            <input type="number" name="quantity_Zen Garden" min="0" value="0" class="w-16 p-1 rounded bg-gray-900 bg-opacity-40 border border-gray-700" aria-label="Quantity for Zen Garden Blend">
+                        </div>
+                    </div>
+                </label>
+                <label class="block mb-2 font-semibold">Additional Notes (optional)
+                    <textarea name="notes" class="w-full p-2 rounded bg-gray-900 bg-opacity-40 border border-gray-700 mt-1"></textarea>
+                </label>
+                <button type="submit" class="glass px-8 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-pink-500 to-purple-500 text-white hover:scale-105 transition">Submit Order</button>
+            </form>
+            <div id="orderNotification" class="fixed top-20 right-6 glass p-4 rounded-2xl z-50 hidden text-green-400 font-semibold">Order submitted! Check your email for an invoice.</div>
+            <script>
+                // Pre-fill blend from quiz (if available)
+                document.addEventListener('DOMContentLoaded', function() {
+                    try {
+                        const quizBlend = localStorage.getItem('zenblend_quiz_blend');
+                        if (quizBlend) {
+                            if (quizBlend === 'Energy Boost Blend') document.getElementById('blend_energy').checked = true;
+                            if (quizBlend === 'Mind Focus Blend') document.getElementById('blend_focus').checked = true;
+                            if (quizBlend === 'Zen Garden Blend') document.getElementById('blend_zen').checked = true;
+                        }
+                    } catch(e) {}
+                    // Fallback notification for native form
+                    document.getElementById('orderForm').addEventListener('submit', function() {
+                        document.getElementById('orderNotification').classList.remove('hidden');
+                        setTimeout(() => document.getElementById('orderNotification').classList.add('hidden'), 4000);
+                    });
+                });
+            </script>
+            <p class="mt-8 text-green-400 font-semibold">After submitting, you will receive an invoice by email. Your order is not complete until payment is received.</p>
+            <a href="/" class="underline text-pink-400 block mt-8">&larr; Back to Home</a>
         </div>
     </div>
 </body>
