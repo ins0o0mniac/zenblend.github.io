@@ -15,14 +15,14 @@
     <meta property="og:url" content="https://yourdomain.com/">
     <meta property="og:title" content="ZenBlend - Premium Tobacco Alternatives">
     <meta property="og:description" content="Discover ZenBlend: premium, natural tobacco alternatives crafted for relaxation, focus, and energy. Find your perfect herbal blend for a healthier lifestyle.">
-    <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+    <meta property="og:image" content="/og-image.jpg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://yourdomain.com/">
     <meta name="twitter:title" content="ZenBlend - Premium Tobacco Alternatives">
     <meta name="twitter:description" content="Discover ZenBlend: premium, natural tobacco alternatives crafted for relaxation, focus, and energy. Find your perfect herbal blend for a healthier lifestyle.">
-    <meta name="twitter:image" content="https://yourdomain.com/og-image.jpg">
+    <meta name="twitter:image" content="/og-image.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -34,7 +34,7 @@
       "@type": "Organization",
       "name": "ZenBlend",
       "url": "https://yourdomain.com/",
-      "logo": "https://yourdomain.com/logo.png",
+      "logo": "/logo.png",
       "sameAs": [
         "https://instagram.com/yourprofile",
         "https://twitter.com/yourprofile",
@@ -50,7 +50,9 @@
     <link rel="manifest" href="/manifest.json">
     <!-- Preload Google Fonts for performance -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap">
-    <!-- Place favicon.png and og-image.jpg in your project root for best results -->
+    <!-- Place favicon.png, og-image.jpg, and logo.png in your project root for best results -->
+    <!-- Example product image usage: -->
+    <!-- <img src="/images/zen-garden.jpg" alt="Zen Garden Blend" class="rounded-2xl w-full h-48 object-cover mb-6"> -->
     <style>
         html {
             scroll-behavior: smooth;
@@ -397,22 +399,22 @@
                     <h3 class="text-2xl font-bold mb-8 text-center">What's your ideal time to enjoy a blend?</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="quiz-option p-6 text-center" onclick="selectQuizOption('morning', 1)">
-                            <div class="text-4xl mb-4"> 305</div>
+                            <div class="text-4xl mb-4">☀️</div>
                             <h4 class="text-xl font-semibold mb-2">Morning</h4>
                             <p class="text-gray-400">Start my day with energy</p>
                         </div>
                         <div class="quiz-option p-6 text-center" onclick="selectQuizOption('afternoon', 1)">
-                            <div class="text-4xl mb-4"> 600 e0f</div>
+                            <div class="text-4xl mb-4">🎯</div>
                             <h4 class="text-xl font-semibold mb-2">Afternoon</h4>
                             <p class="text-gray-400">Midday focus boost</p>
                         </div>
                         <div class="quiz-option p-6 text-center" onclick="selectQuizOption('evening', 1)">
-                            <div class="text-4xl mb-4"> 306</div>
+                            <div class="text-4xl mb-4">⚡</div>
                             <h4 class="text-xl font-semibold mb-2">Evening</h4>
                             <p class="text-gray-400">Unwind after work</p>
                         </div>
                         <div class="quiz-option p-6 text-center" onclick="selectQuizOption('night', 1)">
-                            <div class="text-4xl mb-4"> 319</div>
+                            <div class="text-4xl mb-4">🌙</div>
                             <h4 class="text-xl font-semibold mb-2">Night</h4>
                             <p class="text-gray-400">Peaceful relaxation</p>
                         </div>
@@ -423,15 +425,15 @@
                     <h3 class="text-2xl font-bold mb-8 text-center">What mood are you looking to achieve?</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div class="quiz-option p-6 text-center" onclick="selectQuizOption('energetic', 2)">
-                            <div class="text-4xl mb-4"> 6a1</div>
+                            <div class="text-4xl mb-4">⚡</div>
                             <h4 class="text-xl font-semibold mb-2">Energetic</h4>
                         </div>
                         <div class="quiz-option p-6 text-center" onclick="selectQuizOption('focused', 2)">
-                            <div class="text-4xl mb-4"> 3af</div>
+                            <div class="text-4xl mb-4">🎯</div>
                             <h4 class="text-xl font-semibold mb-2">Focused</h4>
                         </div>
                         <div class="quiz-option p-6 text-center" onclick="selectQuizOption('relaxed', 2)">
-                            <div class="text-4xl mb-4"> 9d8</div>
+                            <div class="text-4xl mb-4">🧘</div>
                             <h4 class="text-xl font-semibold mb-2">Relaxed</h4>
                         </div>
                     </div>
@@ -466,28 +468,28 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 effect-selector">
                 <div class="effect-card p-8 text-center card-3d group cursor-pointer" onclick="selectEffect('relax')">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300"> 9d8 200d 640 e0f</div>
+                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🧘‍♀️</div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Relax</h3>
                     <p class="text-gray-400 mb-6">Unwind and let go of the day's tension with our calming botanical blend.</p>
                     <div class="bg-gradient-to-r from-pink-500 to-purple-500 h-2 rounded-full opacity-70"></div>
                 </div>
                 
                 <div class="effect-card p-8 text-center card-3d group cursor-pointer" onclick="selectEffect('focus')">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300"> 3af</div>
+                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🎯</div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Focus</h3>
                     <p class="text-gray-400 mb-6">Sharpen your mind and enhance concentration with clarity-boosting herbs.</p>
                     <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full opacity-70"></div>
                 </div>
                 
                 <div class="effect-card p-8 text-center card-3d group cursor-pointer" onclick="selectEffect('energy')">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300"> 6a1</div>
+                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Energy</h3>
                     <p class="text-gray-400 mb-6">Boost your vitality with our invigorating blend of natural energizers.</p>
                     <div class="bg-gradient-to-r from-yellow-500 to-orange-500 h-2 rounded-full opacity-70"></div>
                 </div>
                 
                 <div class="effect-card p-8 text-center card-3d group cursor-pointer" onclick="selectEffect('calm')">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300"> 319</div>
+                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🌙</div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Calm</h3>
                     <p class="text-gray-400 mb-6">Find inner peace and tranquility with our evening serenity blend.</p>
                     <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full opacity-70"></div>
@@ -511,13 +513,13 @@
                     <div class="w-full h-48 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl mb-6 relative overflow-hidden">
                         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                         <div class="absolute bottom-4 left-4 text-white">
-                            <div class="text-3xl mb-2"> 33f</div>
+                            <div class="text-6xl mb-2 flex items-center justify-center">🌿</div>
                         </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Zen Garden</h3>
                     <p class="text-gray-400 mb-6 leading-relaxed">A harmonious blend of chamomile, lavender, and mint for ultimate relaxation and stress relief.</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-2xl font-bold text-pink-400">$29.99</span>
+                        <span class="text-2xl font-bold text-pink-400">DKK 70</span>
                         <button class="glass px-6 py-2 rounded-full hover:scale-105 transition-transform" onclick="window.location.href='cart.html'">
                             <i class="fas fa-cart-plus mr-2"></i>Order Now
                         </button>
@@ -528,13 +530,13 @@
                     <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl mb-6 relative overflow-hidden">
                         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                         <div class="absolute bottom-4 left-4 text-white">
-                            <div class="text-3xl mb-2"> 9e0</div>
+                            <div class="text-6xl mb-2 flex items-center justify-center">🧠</div>
                         </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Mind Focus</h3>
                     <p class="text-gray-400 mb-6 leading-relaxed">Ginkgo biloba, rosemary, and ginseng combine to enhance mental clarity and concentration.</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-2xl font-bold text-pink-400">$34.99</span>
+                        <span class="text-2xl font-bold text-pink-400">DKK 70</span>
                         <button class="glass px-6 py-2 rounded-full hover:scale-105 transition-transform" onclick="window.location.href='cart.html'">
                             <i class="fas fa-cart-plus mr-2"></i>Order Now
                         </button>
@@ -545,13 +547,13 @@
                     <div class="w-full h-48 bg-gradient-to-br from-yellow-400 to-red-500 rounded-2xl mb-6 relative overflow-hidden">
                         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                         <div class="absolute bottom-4 left-4 text-white">
-                            <div class="text-3xl mb-2"> 525</div>
+                            <div class="text-6xl mb-2 flex items-center justify-center">🔥</div>
                         </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 gradient-text">Energy Boost</h3>
                     <p class="text-gray-400 mb-6 leading-relaxed">Yerba mate, guarana, and green tea for sustained natural energy without the crash.</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-2xl font-bold text-pink-400">$32.99</span>
+                        <span class="text-2xl font-bold text-pink-400">DKK 70</span>
                         <button class="glass px-6 py-2 rounded-full hover:scale-105 transition-transform" onclick="window.location.href='cart.html'">
                             <i class="fas fa-cart-plus mr-2"></i>Order Now
                         </button>
@@ -622,10 +624,10 @@
                 </div>
                 <div class="glass p-8 rounded-3xl floating">
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-gradient-to-br from-green-400 to-blue-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl"> 33f</div>
-                        <div class="bg-gradient-to-br from-purple-400 to-pink-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl"> 338</div>
-                        <div class="bg-gradient-to-br from-yellow-400 to-red-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl"> 343</div>
-                        <div class="bg-gradient-to-br from-indigo-400 to-purple-500 h-32 rounded-2xl flex items-center justify-center text-white text-2xl"> 33a</div>
+                        <div class="bg-gradient-to-br from-green-400 to-blue-500 h-32 rounded-2xl flex items-center justify-center text-white text-6xl">🌿</div>
+                        <div class="bg-gradient-to-br from-purple-400 to-pink-500 h-32 rounded-2xl flex items-center justify-center text-white text-6xl">🌸</div>
+                        <div class="bg-gradient-to-br from-yellow-400 to-red-500 h-32 rounded-2xl flex items-center justify-center text-white text-6xl">🍃</div>
+                        <div class="bg-gradient-to-br from-indigo-400 to-purple-500 h-32 rounded-2xl flex items-center justify-center text-white text-6xl">🌺</div>
                     </div>
                 </div>
             </div>
@@ -788,19 +790,19 @@
             if (mood === 'energetic') {
                 return {
                     name: 'Energy Boost Blend',
-                    emoji: ' 6a1',
+                    emoji: '⚡',
                     description: 'Perfect for your energetic lifestyle! This blend will keep you motivated and active throughout the day.'
                 };
             } else if (mood === 'focused') {
                 return {
                     name: 'Mind Focus Blend',
-                    emoji: ' 3af',
+                    emoji: '🎯',
                     description: 'Enhance your concentration and mental clarity with this specially crafted focus blend.'
                 };
             } else {
                 return {
                     name: 'Zen Garden Blend',
-                    emoji: ' 9d8 200d 640 e0f',
+                    emoji: '🧘‍♀️',
                     description: 'Unwind and find your inner peace with this deeply relaxing and calming blend.'
                 };
             }
